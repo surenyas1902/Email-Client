@@ -8,6 +8,7 @@ dependencies:
   '@angular/platform-browser-dynamic': 11.0.9_8383343813cdfa803f2f916e7857b4c5
   '@angular/router': 11.0.9_e93998ae5210e283ffcbad5eaf3f366e
   rxjs: 6.6.6
+  semantic-ui-css: 2.4.1
   tslib: 2.1.0
   zone.js: 0.10.3
 devDependencies:
@@ -5323,6 +5324,10 @@ packages:
       node: '>= 10.13.0'
     resolution:
       integrity: sha512-kTw66Dn4ZX7WpjZ7T/SUDgRhapFRKWmisVAF0Rv4Fu8SLFD7eLbqpLvbxVqYhSgaWa7I+bW7pHnbyfNsH6stug==
+  /jquery/3.6.0:
+    dev: false
+    resolution:
+      integrity: sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw==
   /js-tokens/4.0.0:
     dev: true
     resolution:
@@ -7845,6 +7850,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-2P4PtieJeEwVgTU9QEcwIRDQ/mXJLX8/+I3ur+Pg16nS8oNbrGxEso9NyYWy8NAmXiNl4dlAp5MwoNeCWzON4w==
+  /semantic-ui-css/2.4.1:
+    dependencies:
+      jquery: 3.6.0
+    dev: false
+    resolution:
+      integrity: sha512-Pkp0p9oWOxlH0kODx7qFpIRYpK1T4WJOO4lNnpNPOoWKCrYsfHqYSKgk5fHfQtnWnsAKy7nLJMW02bgDWWFZFg==
   /semver-dsl/1.0.1:
     dependencies:
       semver: 5.7.1
@@ -9629,6 +9640,7 @@ specifiers:
   karma-jasmine-html-reporter: ^1.5.0
   protractor: ~7.0.0
   rxjs: ~6.6.0
+  semantic-ui-css: ^2.4.1
   ts-node: ~8.3.0
   tslib: ^2.0.0
   tslint: ~6.1.0

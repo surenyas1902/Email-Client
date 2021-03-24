@@ -7,16 +7,9 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    AuthModule,
-    HttpClientModule
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, AuthModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

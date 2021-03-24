@@ -9,31 +9,36 @@ import { UniqueUsername } from '../validators/unique-username';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  authForm = new FormGroup({
-    username: new FormControl('', [
-      Validators.required,
-      Validators.minLength(3),
-      Validators.maxLength(20),
-      Validators.pattern(/^[a-z0-9]+$/)
-    ],
-    [
-      this.uniqueUsername.validate
-    ]),
-    password: new FormControl('',[
-      Validators.required,
-      Validators.minLength(4),
-      Validators.maxLength(20),
-    ]),
-    passwordConfirmation: new FormControl('',[
-      Validators.required,
-      Validators.minLength(4),
-      Validators.maxLength(20),
-    ])
-  }, { validators: [this.matchPassword.validate]})
+  authForm = new FormGroup(
+    {
+      username: new FormControl(
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(20),
+          Validators.pattern(/^[a-z0-9]+$/)
+        ],
+        [this.uniqueUsername.validate]
+      ),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(20)
+      ]),
+      passwordConfirmation: new FormControl('', [
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(20)
+      ])
+    },
+    { validators: [this.matchPassword.validate] }
+  );
 
-  constructor(private matchPassword: MatchPassword, private uniqueUsername: UniqueUsername) { }
+  constructor(
+    private matchPassword: MatchPassword,
+    private uniqueUsername: UniqueUsername
+  ) {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit() {}
 }

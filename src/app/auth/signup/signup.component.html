@@ -5,24 +5,15 @@
     <input formControlName="username" />
   </div> -->
 
-  <app-input label="Username" [control]="authForm.get('username')"></app-input>
-  {{ authForm.get('username').errors | json }}
-
-  <div class="field">
-    <label>Password</label>
-    <input formControlName="password" />
+  <app-input label="Username" inputType="text" [control]="authForm.get('username')"></app-input>
+  <app-input label="Password" inputType="password" [control]="authForm.get('password')"></app-input>
+  <app-input label="Password Confirmation" inputType="password" [control]="authForm.get('passwordConfirmation')"></app-input>
+  <div class="ui red basic label" *ngIf="authForm.errors && authForm.get('password').touched && authForm.get('passwordConfirmation').touched">
+    <p *ngIf="authForm.errors.passwordsDontMatch">
+      Password and Password confirmation must match
+    </p>
   </div>
-  {{ authForm.get('password').errors | json }}
-
-  <div class="field">
-    <label>Password Confirmation</label>
-    <input formControlName="passwordConfirmation" />
-  </div>
-  {{ authForm.get('passwordConfirmation').errors | json }}
-
   <button class="ui submit button primary">
     Submit
   </button>
-
-  {{ authForm.errors | json }}
 </form>

@@ -1,1 +1,18 @@
-<router-outlet></router-outlet>
+<div class="ui container">
+    <div class="ui secondary pointing menu">
+        <a routerLink="/" class="item"><b>Angular Email</b></a>
+        <div class="right menu">
+            <ng-container *ngIf="signedin$ | async">
+                <a routerLink="/inbox" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" class="ui item">Inbox</a>
+                <a routerLink="/signout" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active" class="ui item">Signout</a>
+            </ng-container>
+            <ng-container *ngIf="!(signedin$ | async)">
+            <a routerLink="/" routerLinkActive="active" class="ui item" [routerLinkActiveOptions]="{exact: true}">SignIn</a>
+            <a routerLink="/signup" routerLinkActive="active" class="ui item" [routerLinkActiveOptions]="{exact: true}" routerLinkActiveOptions="{exact: true}">Signup</a>
+            </ng-container>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</div>
+
+

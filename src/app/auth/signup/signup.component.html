@@ -1,5 +1,5 @@
 <h3>Create an Account</h3>
-<form class="ui form" [formGroup]="authForm">
+<form class="ui form" [formGroup]="authForm" (ngSubmit)="onSubmit()">
   <!-- <div class="field">
     <label>Username</label>
     <input formControlName="username" />
@@ -11,6 +11,9 @@
   <div class="ui red basic label" *ngIf="authForm.errors && authForm.get('password').touched && authForm.get('passwordConfirmation').touched">
     <p *ngIf="authForm.errors.passwordsDontMatch">
       Password and Password confirmation must match
+    </p>
+    <p *ngIf="authForm.errors.noConnection">
+      No Internet Connection detected. Signup failed
     </p>
   </div>
   <button class="ui submit button primary">

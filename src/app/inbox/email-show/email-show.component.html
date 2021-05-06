@@ -8,4 +8,12 @@
             To: <i>{{ Email.to }}</i>
         </div>
     </div>
+    <div>
+        <app-email-reply [email]="Email"></app-email-reply>
+    </div>
+</div>
+<div class="ui divider">
+
+</div>
+<div [innerHTML]="Email.html">
 </div>

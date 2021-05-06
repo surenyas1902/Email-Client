@@ -1,15 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Email } from '../email';
+import { EmailService } from '../email.service';
 
 @Component({
   selector: 'app-email-reply',
   templateUrl: './email-reply.component.html',
   styleUrls: ['./email-reply.component.css']
 })
-export class EmailReplyComponent implements OnInit {
+export class EmailReplyComponent implements OnChanges {
 
-  constructor() { }
+  showModal = false;
+  @Input() email: Email;
 
-  ngOnInit() {
+  constructor(private emailService: EmailService) { }
+
+  ngOnChanges() {
+    const text = this.email.text.replace(/\n/gi,'\n>')
+    this.email = {
+      ... this.email,
+      from: this.email.from,
+      to: this.email.to,
+      subject: `Re: ${this.email.subject}`,
+      text:`\n\n\n------------${this.email.from} wrote:\n
+      > ${text}`
+    }
+  }
+
+  onSubmit(email: Email) {
+    this.emailService.sendEmail(email).subscribe(() => {
+      this.showModal = false;
+    });
   }
 
 }
